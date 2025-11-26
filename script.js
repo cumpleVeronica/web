@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- ⚠️ TUS DATOS AQUÍ ---
     const GITHUB_USERNAME = 'cumpleVeronica'; 
     const REPO_NAME = 'web'; 
-    const GITHUB_TOKEN = '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'; 
+    const GITHUB_TOKEN = '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'; 
     // -------------------------
 
     const TARGET_DATE = '2025-11-28';
@@ -223,3 +223,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 });
+
