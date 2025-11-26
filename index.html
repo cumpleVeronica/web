@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumpleaños Verónica</title>
+    <!-- Vinculamos las fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Vinculamos el CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- PANTALLA DE INICIO DE SESIÓN -->
+    <div id="login-screen">
+        <div class="login-card">
+            <h1>Cumpleaños Verónica</h1>
+            <p class="subtitle">Acceso al evento privado</p>
+            
+            <div class="input-group">
+                <label for="date-input">Introduce la fecha del evento</label>
+                <input type="date" id="date-input">
+            </div>
+            
+            <button class="btn" id="login-btn">Entrar</button>
+            <p class="error-msg" id="error-msg">Fecha incorrecta. Pista: es a finales de noviembre de 2025.</p>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div id="main-content">
+        <header>
+            <h1 class="main-title">Cumpleaños Verónica</h1>
+            <p class="date-display">28 • 11 • 2025</p>
+        </header>
+
+        <section class="upload-section">
+            <h3>Crea recuerdos inolvidables</h3>
+            <p>Sube tus fotos favoritas de este día tan especial.</p>
+            
+            <label for="photo-input" class="custom-file-upload">
+                <span>+</span> Añadir Foto
+            </label>
+            <input type="file" id="photo-input" accept="image/*">
+        </section>
+
+        <!-- Galería donde aparecerán las fotos -->
+        <div class="gallery" id="gallery">
+            <!-- Se llenará con JavaScript -->
+        </div>
+    </div>
+
+    <!-- Vinculamos el JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

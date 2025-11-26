@@ -1,0 +1,302 @@
+/* VARIABLES DE COLOR */
+:root {
+    --bg-color: #fff5f8;        /* Rosa muy pálido de fondo */
+    --card-bg: #ffffff;         /* Blanco puro */
+    --accent: #f8bbd0;          /* Rosa pastel para bordes/detalles */
+    --primary: #ec407a;         /* Rosa más fuerte para acciones */
+    --text-main: #4a4a4a;       /* Gris oscuro para lectura */
+    --text-light: #888888;
+    --shadow: 0 10px 40px rgba(236, 64, 122, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- LOGIN SCREEN --- */
+#login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px); /* Efecto cristal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.6s ease;
+}
+
+.login-card {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    border: 1px solid var(--accent);
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+    color: var(--text-light);
+    margin-left: 5px;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    background: #fff;
+    color: var(--text-main);
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="date"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(236, 64, 122, 0.1);
+}
+
+.btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background-color: #d81b60;
+    box-shadow: 0 5px 15px rgba(236, 64, 122, 0.3);
+}
+
+.error-msg {
+    color: #e53935;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all 0.3s;
+}
+
+/* --- MAIN CONTENT --- */
+#main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: none; /* Oculto por defecto */
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+header {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.date-display {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: var(--primary);
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+/* --- UPLOAD SECTION --- */
+.upload-section {
+    background: var(--card-bg);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    text-align: center;
+    margin-bottom: 3rem;
+    border: 1px dashed var(--accent);
+}
+
+#photo-input {
+    display: none;
+}
+
+.custom-file-upload {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1.5rem;
+    padding: 12px 30px;
+    cursor: pointer;
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.custom-file-upload:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* --- GALLERY GRID --- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding-bottom: 50px;
+}
+
+.photo-card {
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-card:hover {
+    transform: translateY(-5px);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #e53935;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.photo-card:hover .delete-btn {
+    opacity: 1;
+}
+/* ... MANTÉN TODO TU CSS ANTERIOR IGUAL Y AÑADE ESTO AL FINAL ... */
+
+/* --- BOTONES DE ACCIÓN EN FOTOS --- */
+.photo-card {
+    position: relative; /* Necesario para posicionar los botones */
+}
+
+.actions-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 10px;
+}
+
+/* Mostrar botones al pasar el ratón (Hover) */
+.photo-card:hover .actions-overlay {
+    opacity: 1;
+}
+
+/* En móviles, mostrar siempre si se toca (opcional, o usar click) */
+.photo-card:active .actions-overlay {
+    opacity: 1;
+}
+
+.action-btn {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+}
+
+.btn-delete {
+    background: #ff5252;
+    color: white;
+}
+
+.btn-swap {
+    background: #448aff;
+    color: white;
+}
+
+/* Input oculto para el intercambio */
+.hidden-swap-input {
+    display: none;
+}
